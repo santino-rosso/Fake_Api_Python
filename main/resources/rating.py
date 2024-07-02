@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, jsonify
 from .. import db
 from main.models import RatingModel
 
@@ -26,8 +26,8 @@ class Rating(Resource):
 
 class Ratings(Resource):
         def get(self):
-            ratings=db.session.query(RatingModel).get_or_404()
-            return ratings.to_json()
+            ratings=db.session.query(RatingModel)
+            return jsonify([rating.to_json() for rating in ratings])
             
         def post(self):
             ratings = RatingModel.from_json(request.get_json())

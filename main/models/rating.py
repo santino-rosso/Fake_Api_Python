@@ -9,7 +9,7 @@ class Rating(db.Model):
     product = db.relationship('Product', back_populates='rating')
 
     def __repr__(self):
-        return '<Product: %r %r %r>'% (self.rate, self.count)
+        return '<Product: %r %r>'% (self.rate, self.count)
     
 
     def to_json(self):
@@ -25,7 +25,7 @@ class Rating(db.Model):
     def from_json(rating_json):
         id = rating_json.get('id')
         rate = rating_json.get('rate')
-        count = rating_json.get('contador')
+        count = rating_json.get('count')
         return Rating(id=id,
                     rate=rate,
                     count=count,

@@ -24,7 +24,7 @@ def create_app():
     api.add_resource(resources.ProductsResources, "/products")
     api.add_resource(resources.ProductResource, "/product/<id>")
     api.add_resource(resources.RatingsResources, "/ratings")
-    api.add_resource(resources.RatingResource, "/ratinga/<id>")
+    api.add_resource(resources.RatingResource, "/rating/<id>")
 
     api.init_app(app)
 
